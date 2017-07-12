@@ -1,14 +1,12 @@
 
 import TopicList from './containers/TopicList';
-import topicListContainer from './components/App';
-
-console.log(topicListContainer)
+import AppContainer from './components/App';
 
 const matchConfig = [
   {
     path: '/',
-    component: topicListContainer,
-    initState: topicListContainer.initState,
+    component: AppContainer,
+    initState: AppContainer.initState,
     exact: false
   },
   {

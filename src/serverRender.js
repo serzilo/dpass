@@ -65,7 +65,7 @@ function renderFullPage(html, preloadedState) {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Title: Digg / Reddit clone with upvote and downvotes</title>
+        <title>Dpass</title>
         <link rel="stylesheet" type="text/css" href="/static/bundle.css">
       </head>
       <body>
