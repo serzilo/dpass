@@ -5,13 +5,21 @@
   "env": {
     "development": {
       "presets": ["es2015", "react", "stage-0"],
-      "plugins": ["transform-runtime"],
+      "plugins": [
+        "transform-runtime",
+        "transform-object-rest-spread",
+        "transform-export-extensions",
+        "transform-class-properties"
+      ],
       "presets": ["react-hmre"]
     }
   },
   "env": {
     "build": {
-      "presets": ["es2015", "react", "stage-0"]
+      "presets": ["es2015", "react", "stage-0"],
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
     }
   }
 }
