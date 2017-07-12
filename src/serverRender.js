@@ -1,19 +1,20 @@
-import 'babel-polyfill'
+import 'babel-polyfill';
 
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { createStore, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import _reducers from './reducers'
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import matchConfig from './matchConfig'
 import {
   StaticRouter,
   Route,
   Switch,
   matchPath,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+
+import _reducers from './reducers';
+import matchConfig from './matchConfig';
 
 
 function serverRender(req, res) {
@@ -28,12 +29,14 @@ function serverRender(req, res) {
 
   let initState;
   matchConfig.some(route => {
-    const match = matchPath(req.url, route)
-    if (match) {  
+    const match = matchPath(req.url, route);
+
+    if (match) {
       initState = route.initState
     }
-    return match
-  })
+    return match;
+  });
+
 
   store.dispatch(initState(store,req,res))
     .then( () => {
@@ -42,7 +45,7 @@ function serverRender(req, res) {
 }
 
 function renderStoreRouter(store, req, res) {
-  const context = {}
+  const context = {};
   const componentStr = ReactDOMServer.renderToString(
       <Provider store={store}>
         <StaticRouter location={req.url} context={context}>
@@ -53,7 +56,7 @@ function renderStoreRouter(store, req, res) {
           </Switch>
         </StaticRouter>
       </Provider>
-  )
+  );
   res.send(renderFullPage(componentStr, store.getState()))
 }
 
@@ -76,7 +79,7 @@ function renderFullPage(html, preloadedState) {
         <script src="/static/bundle.js"></script>
       </body>
     </html>
-    `
+    `;
 }
 
 module.exports = serverRender

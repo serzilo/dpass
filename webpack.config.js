@@ -1,5 +1,5 @@
-const { resolve, join } = require('path')
-const webpack = require('webpack')
+const { resolve, join } = require('path');
+const webpack = require('webpack');
 
 const config = {
   devtool: 'cheap-eval-source-map',
@@ -18,7 +18,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         use: [
           'babel-loader'
         ],
@@ -48,5 +48,6 @@ const config = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin()
   ]
-}
+};
+
 module.exports = config
