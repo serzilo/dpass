@@ -23,10 +23,7 @@ export default class App extends Component {
                 <HeaderContainer />
 
                 {
-                    matchConfig.map((route, index) => {
-                        console.log(route);
-                        return <Route key={`route${index}`} {...route} />;
-                    })
+                    matchConfig.map((route, index) => <Route key={`route${index}`} {...route} />)
                 }
 
                 <FooterContainer />
