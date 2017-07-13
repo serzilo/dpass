@@ -1,19 +1,20 @@
-
-import TopicList from './containers/TopicList';
-import AppContainer from './components/App';
+import Home from './components/Home';
+import About from './components/About';
+import Contacts from './components/Contacts';
 
 const matchConfig = [
   {
     path: '/',
-    component: AppContainer,
-    initState: AppContainer.initState,
-    exact: false
+    component: Home,
+      exact: true
   },
   {
-    path: '/topiclist',
-    component: TopicList,
-    //initState: TopicList.initState,
-    exact: false
+      path: '/about',
+      component: About,
+  },
+  {
+    path: '/contacts',
+    component: Contacts,
   }
 ];
 

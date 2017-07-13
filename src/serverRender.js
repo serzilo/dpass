@@ -13,9 +13,9 @@ import {
   Link
 } from 'react-router-dom';
 
-import _reducers from './reducers';
-import matchConfig from './matchConfig';
+import App from './components/App';
 
+import _reducers from './reducers';
 
 function serverRender(req, res) {
   const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -27,6 +27,7 @@ function serverRender(req, res) {
       composeEnhancers(applyMiddleware(thunk))
     )
 
+    /*
   let initState;
   matchConfig.some(route => {
     const match = matchPath(req.url, route);
@@ -36,11 +37,20 @@ function serverRender(req, res) {
     }
     return match;
   });
+  */
+
+    let initState = (store,req,res) => {
+        return (dispatch, getState) => {
+            return new Promise( (resolve, reject)=> {
+                resolve();
+            });
+        }
+    };
 
 
   store.dispatch(initState(store,req,res))
     .then( () => {
-      renderStoreRouter(store, req, res)
+      renderStoreRouter(store, req, res);
     })
 }
 
@@ -48,13 +58,9 @@ function renderStoreRouter(store, req, res) {
   const context = {};
   const componentStr = ReactDOMServer.renderToString(
       <Provider store={store}>
-        <StaticRouter location={req.url} context={context}>
-          <Switch>
-            {
-              matchConfig.map((route, index) => <Route key={`route${index}`} {...route} />)
-            }
-          </Switch>
-        </StaticRouter>
+          <StaticRouter location={req.url} context={context}>
+            <App />
+          </StaticRouter>
       </Provider>
   );
   res.send(renderFullPage(componentStr, store.getState()))

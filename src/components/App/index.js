@@ -1,33 +1,46 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import TopicList from '../TopicList'
+import {
+    StaticRouter,
+    Route,
+    Switch,
+    matchPath,
+    Link
+} from 'react-router-dom';
+
 import topicActionCreator from '../../actions/topic';
 
 import HeaderContainer from '../../containers/Header';
 import FooterContainer from '../../containers/Footer';
 
-class App extends Component {
-    static propTypes = {
-        children: PropTypes.element
-    };
+import matchConfig from '../../matchConfig';
 
+export default class App extends Component {
     render() {
         return (
             <div>
                 <HeaderContainer />
-                <div>{this.props.children}</div>
+
+                {
+                    matchConfig.map((route, index) => {
+                        console.log(route);
+                        return <Route key={`route${index}`} {...route} />;
+                    })
+                }
+
                 <FooterContainer />
             </div>
         );
     }
 }
 
+/*
 const mapStateToProps = (state, ownProps) => {
     const { topics } = state;
 
     return topics;
-}
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -46,18 +59,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
-const AppContainer = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(App);
-
-// initState is a function which is run before server, and keep consistency as a thunk middleware, and return a promise
-AppContainer.initState = (store,req,res) => {
-    return (dispatch, getState) => {
-        return new Promise( (resolve, reject)=> {
-            resolve ()
-        })
-    }
-}
-
-export default AppContainer;
+*/
