@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Footer from '../components/Footer';
 
@@ -15,4 +16,4 @@ function mapStateToProps() {
     };
 }
 
-export default connect(mapStateToProps)(FooterContainer);
+export default withRouter(connect(mapStateToProps)(FooterContainer));

@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import topics from './topic'
+import { combineReducers } from 'redux';
+import topics from './topic';
 
 const reducer = combineReducers({
-  topics
-})
+    topics,
+});
 
-export default reducer
+export default reducer;
