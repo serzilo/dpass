@@ -1,0 +1,1348 @@
+html, body {
+    height: 100%;
+}
+
+.container-fluid {
+    width: 80%;
+    max-width: $main-max-width + $grid-gutter-width;
+}
+
+.top-content {
+    min-height: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    .header-inner {
+        background-color: rgba($dropdown-border, 0.96);
+        position: relative;
+        z-index: 10;
+    }
+
+    .menu-logo, .menu-separator, .services-links-box {
+        display: none;
+    }
+
+    .menu-logo {
+        border-bottom: 1px solid $gray-lighter;
+        padding-bottom: 98px;
+
+        img {
+            width: 229px;
+        }
+
+        a {
+            border-bottom: none !important;
+            margin: 0 !important;
+        }
+    }
+
+    .menu-separator {
+        border-top: 1px solid $gray-lighter;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .services-links-box {
+        img {
+            height: 22px;
+            margin: -7px 0 0 -25px;
+        }
+
+        .corporate-line img {
+            height: 27px;
+            margin-left: -25px;
+        }
+    }
+
+    .top-menu {
+        left: 0;
+
+        .to-right {
+            float: right;
+
+            &>a {
+                font-weight: bold;
+                border-bottom: none;
+                line-height: 1;
+                display: inline-block;
+                padding: 11px 19px;
+                margin: 10px 0;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &.active {
+                    color: $body-bg;
+                    background-color: $gray-dark;
+                    border-radius: 200px;
+                }
+            }
+        }
+
+        &.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba($body-bg, 0.5);
+            padding: 15px 20px;
+            z-index: 100;
+        }
+
+        &.animate {
+            transition: top 0.2s ease-in-out;
+        }
+
+        .sign-up, .sign-in {
+            color: $brand-info;
+            padding: 11px 14px !important;
+            
+            &:hover {
+                color: $brand-info;
+            }
+        }
+
+        .h-separator {
+            width: 2px;
+            height: 12px;
+            background-color: #878787;
+            margin: 0 0 -1px 0;
+            display: inline-block;
+        }
+
+        .sign-up {
+
+            &.dropdown {
+                border-bottom: none;
+            }
+
+            .dropdown-toggle {
+                @extend .text-bold;
+                @include create-link($brand-info, dashed);
+                line-height: 1.2;
+                margin-top: -5px;
+            }
+        }
+
+        .close {
+            color: $gray-dark;
+            position: absolute;
+            right: 10%;
+            top: 41px;
+            opacity: 1;
+            font-size: 2.5em;
+        }
+    }
+
+    .select-lang {
+        line-height: 3.2;
+
+        .dropdown-toggle {
+            @include create-link($gray-dark, dotted);
+            font-size: .67em;
+            line-height: 1.3;
+            margin-top: -5px;
+
+            &:hover {
+                border-bottom-color: transparent;
+            }
+        }
+
+        .dropdown-menu {
+            line-height: 1;
+        }
+    }
+
+    .logo-big-menu-toggler {
+        @extend .inline-block;
+        font-weight: bold;
+        font-size: 1.06em;
+        line-height: 1.26;
+        padding: 13px floor(($grid-gutter-width / 2)) 19px;
+        cursor: pointer;
+        margin-top: 4px;
+        margin-left: -1 * floor(($grid-gutter-width / 2));
+        border-radius: 7px 7px 0 0;
+        color: $dodidone-brand-color;
+        user-select: none;
+
+        &.for-dodimail {
+            color: $dodimail-brand-color;
+        }
+
+        &.for-dodicall {
+            color: $dodicall-brand-color;
+        }
+
+        &.for-doditrade {
+            color: $marketmates-brand-color;
+        }
+
+        &.for-dodibox {
+            color: $dodibox-brand-color;
+        }
+
+        &.for-corporate {
+            color: $dodidone-brand-color;
+        }
+
+        &.for-dodioffice {
+            color: $dodioffice-brand-color;
+        }
+
+        &.for-dodivoice {
+            color: $dodivoice-brand-color;
+        }
+
+        &.active {
+            background-color: $body-bg;
+
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+
+        svg {
+            @extend .inline-block;
+            width: 15px;
+            height: 15px;
+            margin: -1px 0 0 1px;
+            fill: currentColor;
+        }
+    }
+
+    .big-menu {
+        @extend .text-center;
+        position: absolute;
+        min-height: $height-big-menu;
+        left: 0;
+        top: -$height-big-menu;
+        width: 100%;
+        background-color: $body-bg;
+        border-bottom: 1px solid $big-menu-border-color;
+        z-index: 9;
+        padding-top: 29px;
+        transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+
+        .big-menu-item {
+            @extend .inline-block;
+            @extend .text-bold;
+            width: 152px;
+            border: 4px solid transparent;
+            padding: 29px 0 25px;
+            font-size: 1.12em;
+            line-height: .89;
+            color: $dodidone-brand-color;
+            margin: 0 0 20px 2%;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.active, &:hover {
+                border-color: $big-menu-border-item-color;
+            }
+
+            &.dodimail {
+                color: $dodimail-brand-color;
+
+                img {
+                    width: 90px;
+                }
+            }
+
+            &.dodicall {
+                color: $dodicall-brand-color;
+
+                img {
+                    width: 85px;
+                }
+            }
+
+            &.dodibox {
+                color: $dodibox-brand-color;
+
+                img {
+                    width: 94px;
+                }
+            }
+
+            &.doditrade {
+                color: $marketmates-brand-color;
+
+                img {
+                    width: 88px;
+                }
+            }
+
+            &.corporate {
+                color: $corporate-brand-color;
+
+                img {
+                    width: 90px;
+                }
+            }
+
+            .menu-picture {
+                height: 84px;
+                display: block;
+                margin: 0 auto 20px;
+                line-height: 84px;
+
+                img {
+                    max-height: 100%;
+                    max-width: 100%;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+.section-header {
+
+    .logo {
+        width: 229px;
+    }
+}
+
+.fp-scroller {
+    min-height: 100vh;
+}
+
+.main-frame {
+    position: relative;
+
+    h1 {
+        margin-bottom: 33px;
+    }
+
+    .form-control {
+        background-color: transparent;
+        border-color: $lighter-gray;
+        margin-bottom: 0;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+}
+
+.page-frame {
+    border-bottom: 1px solid $dropdown-border;
+
+    &:last-child {
+        border-bottom-color: transparent;
+    }
+
+    .container-fluid, .centered-content {
+        display: flex;
+
+        &:before, &:after {
+            display: none;
+        }
+    }
+
+    .container-fluid {
+        min-height: 100vh;
+        padding-top: 180px;
+        flex-direction: column;
+    }
+
+    .centered-content {
+        align-items: center;
+    }
+
+    .service-header {
+        margin-top: 0;
+        margin-bottom: 28px;
+    }
+
+    .bg-frame-img {
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content-main {
+
+        .text-brief {
+            margin-bottom: 0;
+        }
+    }
+
+    .frame-footer {
+        padding-bottom: 8.1%;
+    }
+}
+
+
+.content-main {
+    padding-top: 112px;
+    padding-bottom: 112px;
+
+    .features {
+        padding: 0;
+        margin: -.3em 0 31px;
+        list-style-type: none;
+        line-height: 1.55;
+
+        li {
+
+            &:before {
+                content: "\2014\a0";
+                float: left;
+                margin-left: -1.25em;
+            }
+        }
+    }
+}
+
+footer {
+    min-height: $footer-height;
+    background-color: $footer-bg;
+    line-height: 1.6;
+
+    .container-fluid {
+        min-height: $footer-height;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &.footer__compact,
+    &.footer__compact .container-fluid,
+    &.footer__compact .footer-main-row {
+        min-height: 0;
+    }
+
+    &.footer__compact {
+        padding-top: 60px;
+
+        .infoportal__page-super-title {
+            margin-bottom: 60px;
+        }
+
+        .social-network-box {
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+    }
+
+    .footer__text-block {
+        font-size: 1.6667em;
+        margin-bottom: 30px;
+    }
+
+    .footer__phone-label {
+        font-size: 1.111em;
+        margin-bottom: -10px;
+    }
+
+    .footer__phone-block {
+        margin-bottom: 20px;
+    }
+
+    &.no-shift {
+        margin-top: 0;
+    }
+
+    .footer-main-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 2;
+        min-height: 100vh;
+    }
+
+    .logo {
+        margin-top: 8px;
+        width: 100px;
+    }
+
+    .slogan {
+        font-size: 2.34em;
+        line-height: 1.33;
+        font-weight: bold;
+        margin-top: -0.15em;
+        margin-bottom: 69px;
+    }
+
+    .copy-box {
+        color: $super-light-gray;
+        line-height: 2.11;
+        margin-bottom: 17px;
+
+        .copy-text {
+            margin-right: 75px;
+        }
+
+        a {
+            @include create-link($super-light-gray);
+            margin-right: 43px;
+        }
+    }
+
+    .link-services-box {
+        line-height: 2.11;
+        margin-bottom: 90px;
+    }
+
+    .link-to-service {
+        position: relative;
+
+        svg {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            width: 15px;
+            height: 12px;
+            margin-top: -5px;
+            margin-right: 10px;
+        }
+
+        a {
+            font-weight: normal;
+            font-size: 1em;
+        }
+
+        &.dodicall {
+
+            svg {
+                fill: $dodicall-brand-color;
+            }
+
+            a {
+                @include create-link($dodicall-brand-color);
+            }
+        }
+
+        &.doditrade {
+
+            svg {
+                fill: $marketmates-brand-color;
+            }
+
+            a {
+                @include create-link($marketmates-brand-color);
+            }
+        }
+
+        &.dodimail {
+
+            svg {
+                fill: $dodimail-brand-color;
+            }
+
+            a {
+                @include create-link($dodimail-brand-color);
+            }
+        }
+
+        &.dodibox {
+
+            svg {
+                fill: $dodibox-brand-color;
+            }
+
+            a {
+                @include create-link($dodibox-brand-color);
+            }
+        }
+
+        &.corporate {
+
+            svg {
+                fill: $corporate-brand-color;
+            }
+
+            a {
+                @include create-link($corporate-brand-color);
+            }
+        }
+
+        &.active {
+
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .social-network-box {
+        margin-bottom: 30px;
+
+        a {
+            margin-right: 6px;
+        }
+    }
+}
+
+.capabilities {
+    padding-top: 50px;
+
+    .capabilities-item {
+        @extend .text-brief;
+        margin-bottom: $v-big !important;
+
+        &.item-marketmates {
+
+            .all-capabilities {
+                @include create-link($marketmates-brand-color);
+            }
+        }
+
+        &.item-dodicall {
+
+            .all-capabilities {
+                @include create-link($dodicall-brand-color);
+            }
+        }
+
+        &.item-dodimail {
+
+            .all-capabilities {
+                @include create-link($dodimail-brand-color);
+            }
+        }
+
+        &.item-dodibox {
+
+            .all-capabilities {
+                @include create-link($dodibox-brand-color);
+            }
+        }
+
+        .logo {
+            margin-bottom: $v-middle;
+            height: 35px;
+        }
+
+        .features {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.benefits-item {
+    @extend .text-center;
+    padding-bottom: $v-big;
+
+    .picture {
+        line-height: 200px;
+        height: 200px;
+
+        img {
+            width: 200px;
+            vertical-align: middle;
+        }
+    }
+
+    .encrypt-picture {
+
+        img {
+            width: auto;
+            height: 180px;
+        }
+    }
+
+    .benefits-text {
+        margin-top: $v-middle;
+        padding: 0 20px;
+    }
+}
+
+.marketmates-frame {
+
+    .link-to-service {
+
+        a {
+            @include create-link($marketmates-brand-color);
+        }
+    }
+}
+
+.dodicall-frame {
+
+    .link-to-service {
+
+        a {
+            @include create-link($dodicall-brand-color);
+        }
+    }
+}
+
+.dodimail-frame {
+
+    .link-to-service {
+
+        a {
+            @include create-link($dodimail-brand-color);
+        }
+    }
+}
+
+.dodibox-frame {
+
+    .link-to-service {
+
+        a {
+            @include create-link($dodibox-brand-color);
+        }
+    }
+}
+
+.md-show, .sm-show, .xs-show, .ms-show {
+    display: none;
+}
+
+.contacts-table {
+
+    td {
+
+        &:last-child {
+            padding-left: 6px;
+        }
+    }
+}
+
+.bordered-block {
+    border: 2px dashed $brand-primary;
+    display: inline-block;
+    width: 100%;
+    margin-top: 60px;
+    padding: 30px 15px;
+
+    .schedule {
+        font-size: .9em;
+    }
+}
+
+.help-block {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    line-height: 1;
+    text-align: right;
+}
+
+.captcha-box {
+
+    .form-group {
+
+        &.has-error, &.has-success {
+
+            &:after {
+                top: 32%;
+            }
+        }
+
+        .help-block {
+            margin-top: 2px !important;
+        }
+    }
+
+    .g-recaptcha {
+        @extend .clearfix;
+        margin: 10px 0 26px;
+
+        div {
+            float: right;
+        }
+    }
+
+    .required {
+
+        label {
+            display: none;
+        }
+    }
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+.our-partners {
+    padding: 73px 0 57px;
+
+    img {
+        max-width: 100%;
+    }
+
+    .partner-item {
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+}
+
+.service-roll-box {
+    margin-bottom: 55px;
+}
+
+.download-box {
+    margin-bottom: 90px;
+    border: 1px solid #E8E8E8;
+
+    &_first {
+        margin-top: 90px;
+    }
+
+    &__inner {
+        padding: 60px 0 78px;
+    }
+
+    &__item {
+        position: relative;
+        margin-bottom: 60px;
+        font-size: 1.111em;
+
+        &_last {
+            margin-bottom: 0;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 0;
+        left: -40px;
+    }
+
+    &__description {
+        line-height: 1.5;
+    }
+
+    &__service {
+        font-weight: 700;
+        font-size: 1.778em;
+        line-height: 1.25;
+
+        &_dodicall {
+            color: $dodicall-brand-color;
+        }
+
+        &_doditrade {
+            color: $marketmates-brand-color;
+        }
+
+        &_dodimail {
+            color: $dodimail-brand-color;
+        }
+
+        &_dodibox {
+            color: $dodibox-brand-color;
+        }
+    }
+}
+
+.mb0 {
+    margin-bottom: 0 !important;
+}
+
+.infoportal {
+    &__h1 {
+        font-size: 2.55em;
+        line-height: 1.087;
+        margin: 0 0 50px;
+    }
+
+    &__h2 {
+        font-size: 1.6667em;
+        line-height: 1.2;
+        margin: 0 0 24px;
+    }
+
+    &__h3 {
+        font-size: 1.11em;
+        margin: 0 0 30px;
+    }
+
+    &__page-long-title,
+    &__page-super-title {
+        word-wrap: break-word;
+    }
+
+    &__block {
+        margin-bottom: 90px;
+
+        &-tabs {
+            margin-bottom: 26px;
+        }
+    }
+
+    &_scroll-x {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__service-block {
+        margin-bottom: 50px;
+    }
+
+    &__service-logo {
+        margin-top: 10px;
+    }
+
+    &__page-title {
+        font-size: 2.22em;
+        line-height: 1.2;
+        margin: 0 0 90px;
+    }
+
+    &__page-super-title {
+        font-size: 3em;
+        line-height: 1.11;
+        margin: 0 0 30px
+    }
+
+    &__page-features-block {
+        padding: 0 15px 0 60px;
+    }
+
+    &__circle {
+        width: 133px;
+        height: 133px;
+        border-radius: 50%;
+
+        &-dodioffice {
+            background-color: $dodioffice-brand-color;
+        }
+
+        &-dodivoice {
+            background-color: $dodivoice-brand-color;
+        }
+
+        &-wrapper {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__mb {
+        margin-bottom: 30px !important;
+    }
+
+    &__page-long-title {
+        font-size: 1.667em;
+        line-height: 1.2;
+        margin: 0;
+
+        + p {
+            margin-top: 5px;
+        }
+
+        + table,
+        + .infoportal_scroll-x {
+            margin-top: 30px;
+        }
+    }
+
+    &__page-subtitle {
+        font-size: 1.444em;
+        line-height: 1.154;
+        margin: 0 0 5px;
+    }
+
+    &__page-aside {
+        padding-top: 30px;
+
+        &-wrapper {
+            background-color: $well-bg;
+        }
+    }
+
+    &__page-separation {
+        margin-bottom: 75px;
+    }
+
+    &__page-block {
+        padding: 90px 0;
+    }
+
+    &__content-container {
+        padding: 180px 0 90px;
+    }
+
+    &__side-picture {
+        margin: 30px 0 0 15px;
+    }
+
+    &__slider {
+        margin: 25px 0 180px;
+
+        & ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        & .bx-wrapper {
+            box-shadow: none;
+        }
+
+        & .slider-image {
+            margin: 0 auto;
+        }
+
+        & .bx-wrapper .bx-pager.bx-default-pager a {
+            width: 15px;
+            height: 15px;
+            border-radius: 7px;
+            margin: 0 6px;
+            background: rgba(0,0,0, 0.2);
+        }
+
+        & .bx-wrapper .bx-pager.bx-default-pager a.active {
+            background: #000;
+        }
+
+        & .bx-wrapper .bx-pager {
+            bottom: -44px;
+        }
+    }
+
+    &__table {
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 1em;
+
+        &_toggle-rows {
+            @include create-link($brand-info, dashed);
+            cursor: pointer;
+        }
+
+        th, td {
+            line-height: 1.333;
+            border: 1px solid #E8E8E8;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        td {
+            padding: 29px 24px;
+            vertical-align: middle;
+            line-height: 1.667;
+        }
+
+        th {
+            padding: 22px 24px;
+            vertical-align: top;
+
+            .expansion {
+                font-weight: normal;
+            }
+        }
+
+        .left-collapsed {
+            padding-left: 0;
+        }
+
+        .description-text {
+            display: inline-block;
+            width: 150px;
+            color: #bcbcbc;
+            text-align: center;
+            font-size: 0.888em;
+            line-height: 1.25;
+
+            &__icon {
+                display: block;
+                margin-bottom: 12px;
+            }
+        }
+
+        &_tarifs {
+            td {
+                padding-top: 15px;
+                padding-bottom: 15px;
+
+                &:nth-child(2),
+                &:nth-child(3),
+                &:nth-child(4),
+                &:nth-child(5){
+                    text-align: center;
+                }
+
+                &.description {
+                    &:nth-child(2),
+                    &:nth-child(3){
+                        text-align: left;
+                    }
+                }
+            }
+
+            td:nth-child(1), th:nth-child(1) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__nouislider {
+        position: relative;
+        margin: 50px 0 0 0;
+        height: 93px;
+
+        &-information {
+            color: #CDCDCD;
+        }
+
+        &-total {
+            color: #000;
+            font-weight: bold;
+            font-size: 1.6667em;
+        }
+
+        &-price-per-person {
+            color: #000;
+        }
+
+        .noUI-figure {
+          border-top: 1px solid #ccc;
+        }
+
+        .noUi-target {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            height: 0;
+        }
+
+        .noUi-range-value {
+            width: 40px;
+            position: absolute;
+            text-align: center;
+            left: -15px;
+            top: 22px;
+            font-size: 0.944em;
+        }
+
+        .noUi-range-dot {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ccc;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            top: -5px;
+            color: #ccc;
+            margin-left: -5px;
+            transition: all ease-in 0.3s;
+
+            &.active {
+                background: #000;
+                border: 1px solid #000;
+                font-weight: bold;
+                color: #000;
+            }
+
+            &[data-value='1'] {
+                left: 0;
+            }
+
+            &[data-value='2'] {
+                left: 4.09%;
+            }
+
+            &[data-value='5'] {
+                left: 17.87%;
+            }
+
+            &[data-value='10'] {
+                left: 40.63%;
+            }
+
+            &[data-value='50'] {
+                left: 58.8%;
+            }
+
+            &[data-value='100'] {
+                left: 81.37%;
+            }
+
+            &[data-value='999'] {
+                left: 100%;
+            }
+        }
+
+        .noUi-horizontal .noUi-handle {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            background: #ef8700;
+            border: 5px solid #C46F00;
+            box-shadow: none;
+            left: -45px;
+            top: -45px;
+            text-align: center;
+            line-height: 2.857;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.5556em;
+
+            &:after, &:before {
+                display: none;
+            }
+        }
+    }
+
+    &__price {
+        &-label {
+            color: #CDCDCD;
+            font-size: 1em;
+            margin-bottom: 90px;
+        }
+
+        &-box {
+            padding: 42px 5% 32px;
+            box-shadow: 0 0 43px 0px rgba(50,50,50,.25)
+        }
+    }
+
+    &__dropdown-menu {
+        text-align: left;
+        padding: 30px 36px;
+        color: #000;
+        width: 400px;
+        font-size: .8em;
+    }
+
+    &__price-dropdown-toggle {
+        margin-right: 30px;
+        font-weight: bold;
+    }
+
+    &__image-wrapper {
+        margin-bottom: 90px;
+
+        & .response-image {
+            margin: 0 auto;
+        }
+    }
+
+    &__tab {
+        @extend .text-bold;
+        display: inline-block;
+        font-size: 1.111em;
+        line-height: 1.8;
+        height: 30px;
+        cursor: pointer;
+
+        &-content {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &_dodicall {
+            @include create-link($dodicall-brand-color, dashed);
+
+            &.active {
+                background-color: $dodicall-brand-color;
+            }
+        }
+
+        &_doditrade {
+            @include create-link($marketmates-brand-color, dashed);
+
+            &.active {
+                background-color: $marketmates-brand-color;
+            }
+        }
+
+        &_dodimail {
+            @include create-link($dodimail-brand-color, dashed);
+
+            &.active {
+                background-color: $dodimail-brand-color;
+            }
+        }
+
+        &_dodibox {
+            @include create-link($dodibox-brand-color, dashed);
+
+            &.active {
+                background-color: $dodibox-brand-color;
+            }
+        }
+
+        &.active {
+            color: #fff !important;
+            cursor: default;
+            border-radius: 18px;
+            padding: 0 20px;
+            margin-left: -20px;
+            height: auto;
+        }
+
+        &_default {
+            @include create-link($dodimail-brand-color, dashed);
+            font-weight: normal;
+            
+            &.active {
+                font-weight: bold;
+                color: #000 !important;
+            }
+        }
+    }
+
+    &__customer-block {
+        margin-top: 30px;
+    }
+
+    &__footnote {
+        text-align: right;
+        color: #bcbcbc;
+        font-size: 0.8889em;
+        line-height: 1.875;
+        margin-top: 10px;
+
+        + p {
+            margin-top: 32px;
+        }
+    }
+
+    &__search {
+        width: 100%;
+        font-size: 1.111em;
+        padding: 10px 60px 10px 60px;
+        height: 60px;
+        border: 1px solid #E8E8E8;
+
+        &-wrapper {
+            position: relative;
+            margin-bottom: 60px;
+
+            .icon-search {
+                position: absolute;
+                top: 50%;
+                margin-top: -10px;
+                left: 15px;
+            }
+        }
+    }
+}
+
+
+
+.response-image,
+.store-logo {
+    display: block;
+    max-width: 100%;
+}

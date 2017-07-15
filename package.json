@@ -17,7 +17,14 @@
     "redux": "^3.4.0",
     "redux-logger": "^2.6.1",
     "redux-mock-store": "^1.2.3",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "bootstrap-3-typeahead": "^4.0.2",
+    "bootstrap-sass": "^3.3.6",
+    "bootstrap-select": "^1.12.1",
+    "bxslider": "^4.2.11",
+    "compass-mixins": "^0.12.10",
+    "nouislider": "^9.2.0",
+    "fullpage.js": "^2.9.2"
   },
   "devDependencies": {
     "@storybook/react": "^3.1.8",
@@ -47,10 +54,12 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "jest": "^19.0.2",
     "jest-fetch-mock": "^1.1.1",
+    "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "1.0.7",
     "regenerator-runtime": "*",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^2.5.1",
     "webpack-dev-middleware": "^1.10.2",

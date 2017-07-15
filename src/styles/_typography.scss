@@ -1,0 +1,120 @@
+.text-bold {
+    font-weight: bold;
+}
+
+.text-brief {
+    font-size: 1.1em;
+}
+
+.text-black {
+    color: $gray-dark;
+}
+
+div.text-brief {
+    margin-bottom: 7px;
+}
+
+.no-border {
+    border-bottom: none;
+}
+
+.no-br {
+    white-space: nowrap;
+}
+
+.text-blue {
+    color: $brand-info;
+}
+
+.text-dark-blue {
+    color: $dodidone-brand-color;
+}
+
+.text-gray {
+    color: $middle-gray;
+}
+
+.text-orange {
+    color: $brand-primary;
+}
+
+.text-super-gray {
+    color: $lighter-gray;
+}
+
+h1, h2, h3 {
+    @extend .text-bold;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.11;
+    margin-bottom: $v-middle;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.556em;
+    line-height: 1.145;
+}
+
+h3 {
+    font-size: 1.113em;
+    line-height: 1.4;
+}
+
+a {
+    @include create-link($link-color);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+
+    &.link-blue {
+        @include create-link($brand-info);
+    }
+
+    &.link-phone {
+        @include create-link($brand-info, dashed);
+    }
+}
+
+p {
+    margin-bottom: 32px;
+}
+
+label {
+    font-weight: normal;
+    color: $lighter-gray;
+}
+
+.p-text {
+    font-size: 1.11em;
+    line-height: 1.5;
+}
+
+.dodicall-color {
+    color: $dodicall-brand-color;
+}
+
+.doditrade-color {
+    color: $marketmates-brand-color;
+}
+
+.dodimail-color {
+    color: $dodimail-brand-color;
+}
+
+.dodibox-color {
+    color: $dodibox-brand-color;
+}
+
+.dodivoice-color {
+    color: $dodivoice-brand-color;
+}
+
+.dodioffice-color {
+    color: $dodioffice-brand-color;
+}
+
+.text-center {
+    text-align: center;
+}

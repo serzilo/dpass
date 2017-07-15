@@ -20,26 +20,24 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         use: [
-          'babel-loader'
+          'babel-loader',
         ],
-        exclude: '/node_modules/'
+        exclude: '/node_modules/',
       },
       {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
+          test: /\.scss$/,
+          use: [{
+              loader: "style-loader" // creates style nodes from JS strings
+          }, {
+              loader: "css-loader",
+              options: {
+                  import: true,
+                  importLoaders: 1,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+              }
+          }, {
+              loader: "sass-loader"
+          }]
       }
     ]
   },
@@ -50,4 +48,4 @@ const config = {
   ]
 };
 
-module.exports = config
+module.exports = config;
