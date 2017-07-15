@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import cx from 'classnames';
 
-export default class Contacts extends Component {
+export default class Registration extends Component {
     render() {
         return (
-            <div>Contacts</div>
+            <div>Registration</div>
         );
     }
 }
