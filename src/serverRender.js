@@ -38,18 +38,18 @@ function serverRender(req, res) {
       composeEnhancers(applyMiddleware(thunk))
     );
 
-    let initState = (store,req,res) => {
+    const initState = (store,req,res) => {
         return (dispatch, getState) => {
             return new Promise( (resolve, reject)=> {
                 resolve();
             });
-        }
+        };
     };
 
-  store.dispatch(initState(store,req,res))
-    .then( () => {
-      renderStoreRouter(store, req, res);
-    });
+    store.dispatch(initState(store,req,res))
+        .then(() => {
+            renderStoreRouter(store, req, res);
+        });
 }
 
 module.exports = serverRender;

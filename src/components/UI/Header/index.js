@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import links from '../../../configs/links.json';
@@ -7,6 +8,12 @@ import cx from 'classnames';
 
 export default class Header extends Component {
     render() {
+        const {
+            locale,
+            country,
+			actions,
+        } = this.props;
+
         return (
             <header>
                 <nav>
@@ -22,7 +29,32 @@ export default class Header extends Component {
                         <li><NavLink to={links.login} activeClassName="selected">Войти</NavLink></li>
                     </ul>
                 </nav>
+
+				<hr />
+
+                <div>locale: {locale}</div>
+                <div>country: {country}</div>
+
+				<hr />
+
+				Locale:
+				<button onClick={() => actions.setLocale('ru')}>ru</button>
+				<button onClick={() => actions.setLocale('eng')}>eng</button>
+				<button onClick={() => actions.setLocale('tr')}>tr</button>
+
+				<hr />
+
+				Country:
+				<button onClick={() => actions.setCountry('ru')}>ru</button>
+				<button onClick={() => actions.setCountry('eng')}>eng</button>
+				<button onClick={() => actions.setCountry('tr')}>tr</button>
             </header>
         );
     }
 }
+
+Header.propTypes = {
+	actions: PropTypes.object,
+	locale: PropTypes.string.isRequired,
+	country: PropTypes.string.isRequired,
+};
