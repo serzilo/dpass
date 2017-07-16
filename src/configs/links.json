@@ -1,0 +1,8 @@
+{
+	"home": "/",
+	"ask": "/ask",
+	"download": "/download",
+	"prices": "/prices",
+	"registration": "/registration",
+	"login": "/login"
+}
