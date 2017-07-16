@@ -4,5 +4,10 @@
 	"download": "/download",
 	"prices": "/prices",
 	"registration": "/registration",
-	"login": "/login"
+	"login": "/login",
+	"dodimail": "/dodimail",
+	"dodibox": "/dodibox",
+	"corporate": "/corporate",
+	"aboutCompany": "/about-company",
+	"forpartnes": "/forpartners"
 }

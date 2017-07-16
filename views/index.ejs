@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dpass</title>
+    <link rel="stylesheet" type="text/css" href="/static/bundle.css">
+
+    <!-- Temp styles, remove it! -->
+    <link href="https://dodidone.com/css/infoportal/site.css?v=1497454496" rel="stylesheet">
+</head>
+<body>
+<div id="root"><%- html %></div>
+<script>
+	// WARNING: See the following for security issues around embedding JSON in HTML:
+	// http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+	window.__PRELOADED_STATE__ = <%- preloadedState %>;
+</script>
+<script src="/static/vendor.js"></script>
+<script src="/static/bundle.js"></script>
+</body>
+</html>
