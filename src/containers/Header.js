@@ -9,18 +9,22 @@ import commonActionCreator from '../actions/commonActions';
 class HeaderContainer extends Component {
     render() {
         const {
-            common,
+			locale,
+			country,
             actions,
         } = this.props;
 
-        return <Header {...common} actions={actions} />;
+        return <Header locale={locale} country={country} actions={actions} />;
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
 	const { common } = state;
 
-	return { common };
+	return {
+		locale: common.get('locale'),
+		country: common.get('country'),
+	};
 };
 
 const mapDispatchToProps = (dispatch) => {
