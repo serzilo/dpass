@@ -9,5 +9,7 @@
 	"dodibox": "/dodibox",
 	"corporate": "/corporate",
 	"aboutCompany": "/about-company",
-	"forpartnes": "/forpartners"
+	"forpartnes": "/forpartners",
+	"termsOfUse": "/auth/registration/terms-of-use",
+	"privacyPolicy": "/auth/registration/privacy-policy"
 }
