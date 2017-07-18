@@ -45,7 +45,7 @@ module.exports = {
     ],
     "react/jsx-indent": [
       "error",
-      4
+      "tab"
     ],
     "react/jsx-indent-props": [
       "error",
@@ -75,6 +75,7 @@ module.exports = {
           "error"
         ]
       }
-    ]
+    ],
+      "no-tabs": 0
   }
 };

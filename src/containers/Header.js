@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -18,7 +19,13 @@ class HeaderContainer extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
+HeaderContainer.propTypes = {
+	locale: PropTypes.string.isRequired,
+	country: PropTypes.string.isRequired,
+	actions: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => {
 	const { common } = state;
 
 	return {

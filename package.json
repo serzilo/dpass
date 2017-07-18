@@ -19,6 +19,7 @@
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "nouislider": "^9.2.0",
+    "prop-types": "^15.5.10",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.4",
