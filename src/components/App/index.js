@@ -1,15 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-
-import {
-    StaticRouter,
-    Route,
-    Switch,
-    matchPath,
-    Link
-} from 'react-router-dom';
-
-import topicActionCreator from '../../actions/topic';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import HeaderContainer from '../../containers/Header';
 import FooterContainer from '../../containers/Footer';
@@ -23,43 +13,11 @@ export default class App extends Component {
         return (
             <div>
                 <HeaderContainer />
-
                 {
-                    matchConfig.map((route, index) => <Route key={`route${index}`} {...route} />)
+					Object.keys(matchConfig).map(key => <Route key={key} {...matchConfig[key]} />)
                 }
-
                 <FooterContainer />
             </div>
         );
     }
 }
-
-/*
-const mapStateToProps = (state, ownProps) => {
-    const { topics } = state;
-
-    return topics;
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        thumbUp: (id) => {
-            console.log(' ----- thumbUp', id);
-            dispatch(topicActionCreator.thumbUp(id));
-        },
-        thumbDown: (id) => {
-            console.log(' ----- thumbDown', id);
-            dispatch(topicActionCreator.thumbDown(id));
-        },
-        createTopic: (content) => {
-            console.log(' -------- createTopic', content);
-            dispatch(topicActionCreator.createTopic({content}));
-        },
-    }
-};
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App);
-*/

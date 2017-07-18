@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import ArrowIcon from './arrowIcon';
 
-import links from '../../../configs/links.json';
+import links, { externalLinks } from '../../../matchConfig';
 
 export default class Footer extends Component {
     render() {
@@ -132,12 +132,12 @@ export default class Footer extends Component {
 
 									<div className="row social-network-box">
 										<div className="col-xs-12">
-											<Link to={'https://www.facebook.com/dodidone.russia'} target="_blank">
-												<span className="icon icon-facebook"></span>
+											<Link to={externalLinks.facebookrussia.path} target="_blank">
+												<span className="icon icon-facebook" />
 											</Link>
 
-											<Link to={'https://www.linkedin.com/company/dodidone-international'} target="_blank">
-												<span className="icon icon-linkedin"></span>
+											<Link to={externalLinks.linkedininternational.path} target="_blank">
+												<span className="icon icon-linkedin" />
 											</Link>
 										</div>
 									</div>
@@ -145,7 +145,7 @@ export default class Footer extends Component {
 							) : (
 								<div>
 									<div className="col-xs-12 col-sm-2">
-										<div className="icon icon-dodidone logo"></div>
+										<div className="icon icon-dodidone logo" />
 									</div>
 									<div className="col-xs-12 col-sm-10">
 										<div className="row">
@@ -156,57 +156,57 @@ export default class Footer extends Component {
 										</div>
 										<div className="row link-services-box">
 											<div className="col-xs-12 col-sm-4">
-												<NavLink to={links.home} exact={true} activeClassName="active">All services</NavLink>
+												<NavLink to={links.home.path} exact={true} activeClassName="active">All services</NavLink>
 												<div className={dodicallClassnames}>
 													{
 														action === 'dodicall' && <ArrowIcon />
 													}
-													<Link to={'http://dodidone.com/dodicall'} target="_blank">dodicall</Link>
+													<Link to={externalLinks.dodicall.path} target="_blank">dodicall</Link>
 												</div>
 												<div className={doditradeClassnames}>
 													{
 														action === 'doditrade' && <ArrowIcon />
 													}
-													<Link to={'http://market.dodidone.com/'} target="_blank">doditrade</Link>
+													<Link to={externalLinks.doditrade.path} target="_blank">doditrade</Link>
 												</div>
 												<div className={dodimailClassnames}>
 													{
 														action === 'dodimail' && <ArrowIcon />
 													}
-													<Link to={links.dodimail}>dodimail</Link>
+													<Link to={links.dodimail.path}>dodimail</Link>
 												</div>
 												<div className={dodiboxClassnames}>
 													{
 														action === 'dodibox' && <ArrowIcon />
 													}
-													<Link to={links.dodibox}>dodibox</Link>
+													<Link to={links.dodibox.path}>dodibox</Link>
 												</div>
 
 												<div className={corporateClassnames}>
 													{
 														action === 'corporate' && <ArrowIcon />
 													}
-													<Link to={links.corporate}>Corporate</Link>
+													<Link to={links.corporate.path}>Corporate</Link>
 												</div>
 											</div>
 											<div className="col-xs-12 col-sm-4">
-												<NavLink to={links.ask} activeClassName="active">Support</NavLink><br />
-												<NavLink to={links.download} activeClassName="active">Download</NavLink><br />
-												<NavLink to={links.prices} activeClassName="active">Pricing</NavLink><br />
+												<NavLink to={links.ask.path} activeClassName="active">Support</NavLink><br />
+												<NavLink to={links.download.path} activeClassName="active">Download</NavLink><br />
+												<NavLink to={links.prices.path} activeClassName="active">Pricing</NavLink><br />
 											</div>
 											<div className="col-xs-12 col-sm-4">
-												<NavLink to={links.aboutCompany} activeClassName="active">About the Project</NavLink><br />
-												<NavLink to={links.forpartnes} activeClassName="active">Cooperation</NavLink>
+												<NavLink to={links.about.path} activeClassName="active">About the Project</NavLink><br />
+												<NavLink to={links.forpartners.path} activeClassName="active">Cooperation</NavLink>
 											</div>
 										</div>
 										<div className="row social-network-box">
 											<div className="col-xs-12">
-												<Link to={'https://www.facebook.com/dodidone.russia'} target="_blank">
-													<span className="icon icon-facebook"></span>
+												<Link to={externalLinks.facebookrussia.path} target="_blank">
+													<span className="icon icon-facebook" />
 												</Link>
 
-												<Link to={'https://www.linkedin.com/company/dodidone-international'} target="_blank">
-													<span className="icon icon-linkedin"></span>
+												<Link to={externalLinks.linkedininternational.path} target="_blank">
+													<span className="icon icon-linkedin" />
 												</Link>
 											</div>
 										</div>
@@ -220,10 +220,10 @@ export default class Footer extends Component {
 						<div className="col-sm-offset-2 col-xs-12 col-sm-10">
 							<span className="no-br text-black copy-text">&copy; {year} dodidone</span>
 							<span className="inline-block">
-								<Link to={links.termsOfUse}>Terms of use</Link>
+								<Link to={links.termsofuse.path}>Terms of use</Link>
 							</span>
 							<span className="inline-block">
-								<Link to={links.privacyPolicy}>Privacy Policy</Link>
+								<Link to={links.privacypolicy.path}>Privacy Policy</Link>
 							</span>
 						</div>
 					</div>

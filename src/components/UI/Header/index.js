@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-import links from '../../../configs/links.json';
+import links from '../../../matchConfig';
 
 import cx from 'classnames';
 
@@ -18,15 +18,15 @@ export default class Header extends Component {
             <header>
                 <nav>
                     <ul>
-                        <li><NavLink to={links.home} exact={true} activeClassName="selected">Home</NavLink></li>
-                        <li><NavLink to={links.ask} activeClassName="selected">Поддержка</NavLink></li>
-                        <li><NavLink to={links.download} activeClassName="selected">Скачать</NavLink></li>
-                        <li><NavLink to={links.prices} activeClassName="selected">Цены</NavLink></li>
+                        <li><NavLink to={links.home.path} exact={true} activeClassName="selected">Home</NavLink></li>
+                        <li><NavLink to={links.ask.path} activeClassName="selected">Поддержка</NavLink></li>
+                        <li><NavLink to={links.download.path} activeClassName="selected">Скачать</NavLink></li>
+                        <li><NavLink to={links.prices.path} activeClassName="selected">Цены</NavLink></li>
                     </ul>
 
                     <ul>
-                        <li><NavLink to={links.registration} activeClassName="selected">Подключить</NavLink></li>
-                        <li><NavLink to={links.login} activeClassName="selected">Войти</NavLink></li>
+                        <li><NavLink to={links.registration.path} activeClassName="selected">Подключить</NavLink></li>
+                        <li><NavLink to={links.login.path} activeClassName="selected">Войти</NavLink></li>
                     </ul>
                 </nav>
 
