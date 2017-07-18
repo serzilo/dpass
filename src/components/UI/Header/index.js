@@ -48,6 +48,7 @@ export default class Header extends Component {
 				<button onClick={() => actions.setCountry('ru')}>ru</button>
 				<button onClick={() => actions.setCountry('eng')}>eng</button>
 				<button onClick={() => actions.setCountry('tr')}>tr</button>
+				<button onClick={() => actions.setCountry('int')}>int</button>
             </header>
         );
     }

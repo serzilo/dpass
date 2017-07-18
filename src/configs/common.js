@@ -1,0 +1,12 @@
+export const SERVICE_DODICALL = 'SERVICE_DODICALL';
+export const SERVICE_DODITRADE = 'SERVICE_DODITRADE';
+export const SERVICE_DODIMAIL = 'SERVICE_DODIMAIL';
+export const SERVICE_DODIBOX = 'SERVICE_DODIBOX';
+export const SERVICE_DODIOFFICE = 'SERVICE_DODIOFFICE';
+export const SERVICE_DODIVOICE = 'SERVICE_DODIVOICE';
+export const CORPORATE = 'CORPORATE';
+export const REQUEST = 'REQUEST';
+export const COUNTRY_RU = 'ru';
+export const COUNTRY_GB = 'gb';
+export const COUNTRY_TR = 'tr';
+export const COUNTRY_INTERNATIONAL = 'int';

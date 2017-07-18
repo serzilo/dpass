@@ -6,42 +6,55 @@ import cx from 'classnames';
 import ArrowIcon from './arrowIcon';
 
 import links, { externalLinks } from '../../../matchConfig';
+import {
+	SERVICE_DODICALL,
+	SERVICE_DODITRADE,
+	SERVICE_DODIMAIL,
+	SERVICE_DODIBOX,
+	SERVICE_DODIOFFICE,
+	SERVICE_DODIVOICE,
+	CORPORATE,
+	REQUEST,
+	COUNTRY_RU,
+	COUNTRY_GB,
+	COUNTRY_TR,
+} from '../../../configs/common';
 
 export default class Footer extends Component {
     render() {
 		const { country } = this.props;
 
-        const action = 'dodibox';
+        const action = SERVICE_DODIBOX;
 		const year = new Date().getFullYear();
 
 		const dodicallClassnames = cx({
 			'link-to-service': true,
 			'dodicall': true,
-			'active': action === 'dodicall',
+			'active': action === SERVICE_DODICALL,
 		});
 
 		const doditradeClassnames = cx({
 			'link-to-service': true,
 			'doditrade': true,
-			'active': action === 'doditrade',
+			'active': action === SERVICE_DODITRADE,
 		});
 
 		const dodimailClassnames = cx({
 			'link-to-service': true,
 			'dodimail': true,
-			'active': action === 'dodimail',
+			'active': action === SERVICE_DODIMAIL,
 		});
 
 		const dodiboxClassnames = cx({
 			'link-to-service': true,
 			'dodibox': true,
-			'active': action === 'dodibox',
+			'active': action === SERVICE_DODIBOX,
 		});
 
 		const corporateClassnames = cx({
 			'link-to-service': true,
 			'corporate': true,
-			'active': action === 'corporate',
+			'active': action === CORPORATE,
 		});
 
         return (
@@ -49,10 +62,10 @@ export default class Footer extends Component {
 				<div className="container-fluid">
 					<div className="row footer-main-row">
 						{
-							(action === 'dodioffice' || action === 'dodivoice' || action === 'request') ? (
+							(action === SERVICE_DODIOFFICE || action === SERVICE_DODIVOICE || action === REQUEST) ? (
 								<div className="col-xs-12">
 									{
-										country === 'ru' && (
+										country === COUNTRY_RU && (
 											<div>
 												<h2 className="infoportal__page-super-title">
 													Контакты
@@ -77,7 +90,7 @@ export default class Footer extends Component {
 									}
 
 									{
-										country === 'gb' && (
+										country === COUNTRY_GB && (
 											<div>
 												<h2 className="infoportal__page-super-title">
 													C ontact us
@@ -93,7 +106,7 @@ export default class Footer extends Component {
 									}
 
 									{
-										country === 'tr' && (
+										country === COUNTRY_TR && (
 											<div>
 												<h2 className="infoportal__page-super-title">
 													İletişim
@@ -109,7 +122,7 @@ export default class Footer extends Component {
 									}
 
 									{
-										country !== 'ru' && country !== 'gb' && country !== 'tr' && (
+										country !== COUNTRY_RU && country !== COUNTRY_GB && country !== COUNTRY_TR && (
 											<div>
 												<h2 className="infoportal__page-super-title">
 													Contact us
@@ -159,44 +172,72 @@ export default class Footer extends Component {
 												<NavLink to={links.home.path} exact={true} activeClassName="active">All services</NavLink>
 												<div className={dodicallClassnames}>
 													{
-														action === 'dodicall' && <ArrowIcon />
+														action === SERVICE_DODICALL && <ArrowIcon />
 													}
-													<Link to={externalLinks.dodicall.path} target="_blank">dodicall</Link>
+
+													<Link to={externalLinks.dodicall.path} target="_blank">
+														dodicall
+													</Link>
 												</div>
 												<div className={doditradeClassnames}>
 													{
-														action === 'doditrade' && <ArrowIcon />
+														action === SERVICE_DODITRADE && <ArrowIcon />
 													}
-													<Link to={externalLinks.doditrade.path} target="_blank">doditrade</Link>
+
+													<Link to={externalLinks.doditrade.path} target="_blank">
+														doditrade
+													</Link>
 												</div>
 												<div className={dodimailClassnames}>
 													{
-														action === 'dodimail' && <ArrowIcon />
+														action === SERVICE_DODIMAIL && <ArrowIcon />
 													}
-													<Link to={links.dodimail.path}>dodimail</Link>
+
+													<Link to={links.dodimail.path}>
+														dodimail
+													</Link>
 												</div>
 												<div className={dodiboxClassnames}>
 													{
-														action === 'dodibox' && <ArrowIcon />
+														action === SERVICE_DODIBOX && <ArrowIcon />
 													}
-													<Link to={links.dodibox.path}>dodibox</Link>
+
+													<Link to={links.dodibox.path}>
+														dodibox
+													</Link>
 												</div>
 
 												<div className={corporateClassnames}>
 													{
-														action === 'corporate' && <ArrowIcon />
+														action === CORPORATE && <ArrowIcon />
 													}
-													<Link to={links.corporate.path}>Corporate</Link>
+
+													<Link to={links.corporate.path}>
+														Corporate
+													</Link>
 												</div>
 											</div>
 											<div className="col-xs-12 col-sm-4">
-												<NavLink to={links.ask.path} activeClassName="active">Support</NavLink><br />
-												<NavLink to={links.download.path} activeClassName="active">Download</NavLink><br />
-												<NavLink to={links.prices.path} activeClassName="active">Pricing</NavLink><br />
+												<NavLink to={links.ask.path} activeClassName="active">
+													Support
+												</NavLink><br />
+
+												<NavLink to={links.download.path} activeClassName="active">
+													Download
+												</NavLink><br />
+
+												<NavLink to={links.prices.path} activeClassName="active">
+													Pricing
+												</NavLink>
 											</div>
 											<div className="col-xs-12 col-sm-4">
-												<NavLink to={links.about.path} activeClassName="active">About the Project</NavLink><br />
-												<NavLink to={links.forpartners.path} activeClassName="active">Cooperation</NavLink>
+												<NavLink to={links.about.path} activeClassName="active">
+													About the Project
+												</NavLink><br />
+
+												<NavLink to={links.forpartners.path} activeClassName="active">
+													Cooperation
+												</NavLink>
 											</div>
 										</div>
 										<div className="row social-network-box">
@@ -220,10 +261,14 @@ export default class Footer extends Component {
 						<div className="col-sm-offset-2 col-xs-12 col-sm-10">
 							<span className="no-br text-black copy-text">&copy; {year} dodidone</span>
 							<span className="inline-block">
-								<Link to={links.termsofuse.path}>Terms of use</Link>
+								<Link to={links.termsofuse.path}>
+									Terms of use
+								</Link>
 							</span>
 							<span className="inline-block">
-								<Link to={links.privacypolicy.path}>Privacy Policy</Link>
+								<Link to={links.privacypolicy.path}>
+									Privacy Policy
+								</Link>
 							</span>
 						</div>
 					</div>
