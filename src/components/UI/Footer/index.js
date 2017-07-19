@@ -36,8 +36,6 @@ export default class Footer extends PureComponent {
     render() {
 		const { country } = this.props;
 
-		console.log(this.props);
-
 		const dodicallClassnames = cx({
 			'link-to-service': true,
 			'dodicall': true,
