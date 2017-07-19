@@ -10,15 +10,17 @@ class FooterContainer extends Component {
 		const {
             locale,
             country,
+			location,
         } = this.props;
 
-		return <Footer locale={locale} country={country} />;
+		return <Footer locale={locale} country={country} pathname={location.pathname} />;
     }
 }
 
 FooterContainer.propTypes = {
 	locale: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
+	location: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {

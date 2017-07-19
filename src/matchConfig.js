@@ -30,6 +30,7 @@ const matchConfig = {
 	registration: {
         path: '/registration',
         component: Registration,
+		exact: true,
     },
 	login: {
         path: '/login',
@@ -55,12 +56,16 @@ const matchConfig = {
 		path: '/dodibox',
 		component: InFuture,
 	},
+	dodioffice: {
+		path: '/dodioffice',
+		component: InFuture,
+	},
 	termsofuse: {
 		path: '/auth/registration/terms-of-use',
 		component: InFuture,
 	},
 	privacypolicy: {
-		path: '/auth/registration/terms-of-use',
+		path: '/auth/registration/privacy-policy',
 		component: InFuture,
 	},
 };

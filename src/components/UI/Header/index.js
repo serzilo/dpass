@@ -22,6 +22,7 @@ export default class Header extends Component {
                         <li><NavLink to={links.ask.path} activeClassName="selected">Поддержка</NavLink></li>
                         <li><NavLink to={links.download.path} activeClassName="selected">Скачать</NavLink></li>
                         <li><NavLink to={links.prices.path} activeClassName="selected">Цены</NavLink></li>
+                        <li><NavLink to={links.dodioffice.path} activeClassName="selected">dodioffice</NavLink></li>
                     </ul>
 
                     <ul>
@@ -46,7 +47,7 @@ export default class Header extends Component {
 
 				Country:
 				<button onClick={() => actions.setCountry('ru')}>ru</button>
-				<button onClick={() => actions.setCountry('eng')}>eng</button>
+				<button onClick={() => actions.setCountry('gb')}>gb</button>
 				<button onClick={() => actions.setCountry('tr')}>tr</button>
 				<button onClick={() => actions.setCountry('int')}>int</button>
             </header>

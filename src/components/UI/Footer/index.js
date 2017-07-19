@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Link } from 'react-router-dom';
+import {
+	NavLink,
+	Link ,
+} from 'react-router-dom';
 import cx from 'classnames';
 
 import ArrowIcon from './arrowIcon';
@@ -18,43 +21,51 @@ import {
 	COUNTRY_RU,
 	COUNTRY_GB,
 	COUNTRY_TR,
+	COUNTRY_INTERNATIONAL,
 } from '../../../configs/common';
 
-export default class Footer extends Component {
+export default class Footer extends PureComponent {
+	matchPath(path) {
+		return this.props.pathname.indexOf(path) >= 0;
+	}
+
+	getYear() {
+		return new Date().getFullYear();
+	}
+
     render() {
 		const { country } = this.props;
 
-        const action = SERVICE_DODIBOX;
-		const year = new Date().getFullYear();
+		console.log(this.props);
 
 		const dodicallClassnames = cx({
 			'link-to-service': true,
 			'dodicall': true,
-			'active': action === SERVICE_DODICALL,
+			'active': this.matchPath(SERVICE_DODICALL),
 		});
 
 		const doditradeClassnames = cx({
 			'link-to-service': true,
 			'doditrade': true,
-			'active': action === SERVICE_DODITRADE,
+			'active': this.matchPath(SERVICE_DODITRADE),
 		});
 
 		const dodimailClassnames = cx({
 			'link-to-service': true,
 			'dodimail': true,
-			'active': action === SERVICE_DODIMAIL,
+			'active': this.matchPath(SERVICE_DODIMAIL),
 		});
 
 		const dodiboxClassnames = cx({
 			'link-to-service': true,
 			'dodibox': true,
-			'active': action === SERVICE_DODIBOX,
+			'active': this.matchPath(SERVICE_DODIBOX),
 		});
 
 		const corporateClassnames = cx({
 			'link-to-service': true,
 			'corporate': true,
-			'active': action === CORPORATE,
+			'active': this.matchPath(CORPORATE),
 		});
 
         return (
@@ -62,7 +73,7 @@ export default class Footer extends Component {
 				<div className="container-fluid">
 					<div className="row footer-main-row">
 						{
-							(action === SERVICE_DODIOFFICE || action === SERVICE_DODIVOICE || action === REQUEST) ? (
+							(this.matchPath(SERVICE_DODIOFFICE) || this.matchPath(SERVICE_DODIVOICE) || this.matchPath(REQUEST)) ? (
 								<div className="col-xs-12">
 									{
 										country === COUNTRY_RU && (
@@ -93,7 +104,7 @@ export default class Footer extends Component {
 										country === COUNTRY_GB && (
 											<div>
 												<h2 className="infoportal__page-super-title">
-													C ontact us
+													Contact us
 												</h2>
 
 												<div className="row footer__phone-block">
@@ -122,7 +133,7 @@ export default class Footer extends Component {
 									}
 
 									{
-										country !== COUNTRY_RU && country !== COUNTRY_GB && country !== COUNTRY_TR && (
+										country === COUNTRY_INTERNATIONAL && (
 											<div>
 												<h2 className="infoportal__page-super-title">
 													Contact us
@@ -172,7 +183,7 @@ export default class Footer extends Component {
 												<NavLink to={links.home.path} exact={true} activeClassName="active">All services</NavLink>
 												<div className={dodicallClassnames}>
 													{
-														action === SERVICE_DODICALL && <ArrowIcon />
+														this.matchPath(SERVICE_DODICALL) && <ArrowIcon />
 													}
 
 													<Link to={externalLinks.dodicall.path} target="_blank">
@@ -181,7 +192,7 @@ export default class Footer extends Component {
 												</div>
 												<div className={doditradeClassnames}>
 													{
-														action === SERVICE_DODITRADE && <ArrowIcon />
+														this.matchPath(SERVICE_DODITRADE) && <ArrowIcon />
 													}
 
 													<Link to={externalLinks.doditrade.path} target="_blank">
@@ -190,7 +201,7 @@ export default class Footer extends Component {
 												</div>
 												<div className={dodimailClassnames}>
 													{
-														action === SERVICE_DODIMAIL && <ArrowIcon />
+														this.matchPath(SERVICE_DODIMAIL) && <ArrowIcon />
 													}
 
 													<Link to={links.dodimail.path}>
@@ -199,7 +210,7 @@ export default class Footer extends Component {
 												</div>
 												<div className={dodiboxClassnames}>
 													{
-														action === SERVICE_DODIBOX && <ArrowIcon />
+														this.matchPath(SERVICE_DODIBOX) && <ArrowIcon />
 													}
 
 													<Link to={links.dodibox.path}>
@@ -209,7 +220,7 @@ export default class Footer extends Component {
 
 												<div className={corporateClassnames}>
 													{
-														action === CORPORATE && <ArrowIcon />
+														this.matchPath(CORPORATE) && <ArrowIcon />
 													}
 
 													<Link to={links.corporate.path}>
@@ -259,7 +270,7 @@ export default class Footer extends Component {
 
 					<div className="row copy-box">
 						<div className="col-sm-offset-2 col-xs-12 col-sm-10">
-							<span className="no-br text-black copy-text">&copy; {year} dodidone</span>
+							<span className="no-br text-black copy-text">&copy; {this.getYear()} dodidone</span>
 							<span className="inline-block">
 								<Link to={links.termsofuse.path}>
 									Terms of use
@@ -281,4 +292,5 @@ export default class Footer extends Component {
 Footer.propTypes = {
 	locale: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
+	pathname: PropTypes.string.isRequired,
 };
