@@ -16,7 +16,7 @@ class HeaderContainer extends Component {
 			location,
         } = this.props;
 
-        return <Header locale={locale} country={country} actions={actions} pathname={'ask'} />;
+        return <Header locale={locale} country={country} actions={actions} pathname={location.pathname} />;
     }
 }
 
