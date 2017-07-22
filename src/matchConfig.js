@@ -10,34 +10,34 @@ import Corporate from './components/Pages/Corporate';
 import InFuture from './components/Pages/InFuture';
 
 const matchConfig = {
-    home: {
-        path: '/',
-        component: Home,
-        exact: true,
-    },
-    ask: {
-        path: '/ask',
-        component: Ask,
-    },
-    download: {
-        path: '/download',
-        component: Download,
-    },
-    prices: {
-        path: '/prices',
-        component: Prices,
-    },
-	registration: {
-        path: '/registration',
-        component: Registration,
+	home: {
+		path: '/',
+		component: Home,
 		exact: true,
-    },
+	},
+	ask: {
+		path: '/infopages/ask',
+		component: Ask,
+	},
+	download: {
+		path: '/infopages/download',
+		component: Download,
+	},
+	prices: {
+		path: '/infopages/prices',
+		component: Prices,
+	},
+	registration: {
+		path: '/registration',
+		component: Registration,
+		exact: true,
+	},
 	login: {
-        path: '/login',
-        component: Login,
-    },
+		path: '/login',
+		component: Login,
+	},
 	about: {
-		path: '/about-company',
+		path: '/infopages/about-company',
 		component: About,
 	},
 	forpartners: {
@@ -59,6 +59,20 @@ const matchConfig = {
 	dodioffice: {
 		path: '/dodioffice',
 		component: InFuture,
+		local: {
+			benefits: '#benefits',
+			tariffs: '#tariffs',
+			contacts: '#contacts',
+		},
+	},
+	dodivoice: {
+		path: '/dodivoice',
+		component: InFuture,
+		local: {
+			benefits: '#benefits',
+			tariffs: '#tariffs',
+			contacts: '#contacts',
+		},
 	},
 	termsofuse: {
 		path: '/auth/registration/terms-of-use',
@@ -66,6 +80,18 @@ const matchConfig = {
 	},
 	privacypolicy: {
 		path: '/auth/registration/privacy-policy',
+		component: InFuture,
+	},
+	requestFromDodioffice: {
+		path: '/infopages/request?from=dodioffice',
+		component: InFuture,
+	},
+	requestFromDodivoice: {
+		path: '/infopages/request?from=dodivoice',
+		component: InFuture,
+	},
+	signIn: {
+		path: '/login',
 		component: InFuture,
 	},
 };
@@ -82,6 +108,12 @@ export const externalLinks = {
 	},
 	doditrade: {
 		path: 'http://market.dodidone.com/',
+	},
+	settings: {
+		path: 'http://pass.dodidone.com/settings',
+	},
+	logout: {
+		path: 'http://pass.dodidone.com/logout',
 	},
 };
 

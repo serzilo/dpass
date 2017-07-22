@@ -13,9 +13,10 @@ class HeaderContainer extends Component {
 			locale,
 			country,
             actions,
+			location,
         } = this.props;
 
-        return <Header locale={locale} country={country} actions={actions} />;
+        return <Header locale={locale} country={country} actions={actions} pathname={'ask'} />;
     }
 }
 
@@ -23,6 +24,7 @@ HeaderContainer.propTypes = {
 	locale: PropTypes.string.isRequired,
 	country: PropTypes.string.isRequired,
 	actions: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
