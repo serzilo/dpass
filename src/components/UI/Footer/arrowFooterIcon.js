@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ArrowIcon extends Component {
+export default class ArrowFooterIcon extends Component {
 	render() {
 		return (
 			<svg viewBox="11.500999450683594 20.2340087890625 74.3270034790039 58.532989501953125">

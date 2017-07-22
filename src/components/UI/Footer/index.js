@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import cx from 'classnames';
 
-import ArrowIcon from './arrowIcon';
+import ArrowFooterIcon from './arrowFooterIcon';
 
 import links, { externalLinks } from '../../../matchConfig';
 import {
@@ -181,7 +181,7 @@ export default class Footer extends PureComponent {
 												<NavLink to={links.home.path} exact={true} activeClassName="active">All services</NavLink>
 												<div className={dodicallClassnames}>
 													{
-														this.matchPath(SERVICE_DODICALL) && <ArrowIcon />
+														this.matchPath(SERVICE_DODICALL) && <ArrowFooterIcon />
 													}
 
 													<Link to={externalLinks.dodicall.path} target="_blank">
@@ -190,7 +190,7 @@ export default class Footer extends PureComponent {
 												</div>
 												<div className={doditradeClassnames}>
 													{
-														this.matchPath(SERVICE_DODITRADE) && <ArrowIcon />
+														this.matchPath(SERVICE_DODITRADE) && <ArrowFooterIcon />
 													}
 
 													<Link to={externalLinks.doditrade.path} target="_blank">
@@ -199,7 +199,7 @@ export default class Footer extends PureComponent {
 												</div>
 												<div className={dodimailClassnames}>
 													{
-														this.matchPath(SERVICE_DODIMAIL) && <ArrowIcon />
+														this.matchPath(SERVICE_DODIMAIL) && <ArrowFooterIcon />
 													}
 
 													<Link to={links.dodimail.path}>
@@ -208,7 +208,7 @@ export default class Footer extends PureComponent {
 												</div>
 												<div className={dodiboxClassnames}>
 													{
-														this.matchPath(SERVICE_DODIBOX) && <ArrowIcon />
+														this.matchPath(SERVICE_DODIBOX) && <ArrowFooterIcon />
 													}
 
 													<Link to={links.dodibox.path}>
@@ -218,7 +218,7 @@ export default class Footer extends PureComponent {
 
 												<div className={corporateClassnames}>
 													{
-														this.matchPath(CORPORATE) && <ArrowIcon />
+														this.matchPath(CORPORATE) && <ArrowFooterIcon />
 													}
 
 													<Link to={links.corporate.path}>
